@@ -1,14 +1,15 @@
 import express, { Response } from 'express';
 import userRoute from "./routes/user.route"
 import authRoute from "./routes/auth.route"
-import testMiddleware from './middlewares/test';
+
+import middleWares from './middlewares/test';
 
 const port = 8000;
 const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-app.use(testMiddleware)
+app.use(middleWares.logger)
 
 app.use('/api/v1', userRoute);
 app.use('/api/v1', authRoute)
