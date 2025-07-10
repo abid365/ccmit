@@ -4,8 +4,11 @@ FROM node:18
 # Set working directory inside container
 WORKDIR /app
 
-# Install dependencies
-COPY package*.json ./
+# Copy ONLY backend directory contents
+COPY backend/package*.json ./
+COPY backend/tsconfig.json ./
+COPY backend/prisma ./prisma
+COPY backend/src ./src
 RUN npm install
 
 # Copy the rest of the project files
