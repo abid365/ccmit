@@ -16,8 +16,6 @@ const testMiddleware = async(req:Request,res:Response,next:NextFunction)=>{
    
 const logger = async(req:Request, res:Response, next:NextFunction)=>{
     req.time = new Date(Date.now()).toString();
-    
-    // ANSI color codes
     const colors = {
         reset: '\x1b[0m',
         bright: '\x1b[1m',
@@ -26,8 +24,6 @@ const logger = async(req:Request, res:Response, next:NextFunction)=>{
         blink: '\x1b[5m',
         reverse: '\x1b[7m',
         hidden: '\x1b[8m',
-        
-        // Foreground colors
         fg: {
             black: '\x1b[30m',
             red: '\x1b[31m',
@@ -39,7 +35,7 @@ const logger = async(req:Request, res:Response, next:NextFunction)=>{
             white: '\x1b[37m',
             crimson: '\x1b[38m'
         },
-        // Background colors
+        
         bg: {
             black: '\x1b[40m',
             red: '\x1b[41m',
@@ -53,7 +49,6 @@ const logger = async(req:Request, res:Response, next:NextFunction)=>{
         }
     };
 
-    // Color-coded log
     console.log(
         `${colors.bg.cyan}${req.method}${colors.reset}`,
         `${colors.bg.yellow}${req.hostname}${colors.reset}`,

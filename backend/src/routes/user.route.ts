@@ -11,6 +11,10 @@ route.get("/users", async(req: Request, res: Response) => {
 })
 
 route.post("/users", userService.postUser)
+route.put("/users/:id",async(req,res)=>{
+    console.log(req.params.id)
+    res.end()
+})
 
 
 export default route
