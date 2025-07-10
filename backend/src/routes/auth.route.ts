@@ -54,6 +54,7 @@ route.post("/auth/login", upload.any(), async(req:Request,res:Response)=>{
   } catch (error) {
     console.log(error)
     res.json({
+      "message":"Account not found",
         "error":error
     })
   }
